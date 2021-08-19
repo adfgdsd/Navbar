@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
+        *
+        {
+            padding: 0;
+            margin: 0;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .Nav_Logo
+        {
+            width: 100%;
+            height: 10vh;
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            top: 0%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .Nav_Logo img
+        {
+            display: none;
+            width: 30px;
+            cursor: pointer;
+        }
+        .Nav_Logo .Logo 
+        {
+            font-size: 2.5rem;
+            user-select: none;
+            cursor: pointer;
+        }
+        .Nav_Logo .Logo span
+        {
+            color: rgb(255, 196, 0);
+        }
+        .Nav_Logo nav ul
+        {
+            display: flex;
+        }
+        .Nav_Logo nav ul li
+        {
+            list-style: none;
+            padding: 6px 15px;
+            margin: 15px;
+            border-radius: 5px;
+            background-color: transparent;
+        }
+        .Nav_Logo nav ul li:last-child
+        {
+            background-color: rgb(255, 196, 0);
+        }
+        .Nav_Logo nav ul li:last-child:hover
+        {
+            background-color: rgb(253, 206, 51);
+        }
+        .Nav_Logo nav ul li:last-child a
+        {
+            color: #fff;
+        }
+        .Nav_Logo nav ul li a
+        {
+            text-decoration: none;
+            font-size: 1.4rem;
+            text-transform: capitalize;
+            color: rgb(0, 0, 0);
+        }
+        .Nav_Logo nav ul li #active
+        {
+            color: rgb(0, 183, 255);
+        }
+        .Nav_Logo nav ul li #active:hover
+        {
+            color: rgb(255, 196, 0);
+        }
+        .Nav_Logo nav ul li a:hover
+        {
+            color: rgb(0, 183, 255);
+        }
+        .Nav_Logo nav ul li #contact:hover
+        {
+            color: rgb(255, 255, 255);
+        }
+
+        /* home section start  */
+
+        .Home
+        {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+            background: yellow;
+        }
+        .Home h1
+        {
+            font-size: 3.5rem;
+        }
+        .Home .btn button
+        {
+            width: 140px;
+            height: 40px;
+            background: transparent;
+            border: 3px solid #fff;
+            font-size: 1.4rem;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .Home .btn button:hover
+        {
+            background: #fff;
+            color: #000000;
+        }
+
+        /* responsive aria */
+
+        @media screen and (max-width:850px){
+            html{font-size: 70%;}
+            .Nav_Logo nav ul li {margin: 10px;}
+        }
+        @media screen and (max-width:601px){
+            :root{--h:0px;}
+            .active{--h:300px}
+            html{font-size: 60%;}
+            .Nav_Logo img{display: block;}
+            .Nav_Logo nav {transition: 0.5s; position: absolute; width: 100%; height: var(--h); background: rgb(255, 255, 255);
+                top: 10vh; overflow: hidden;}
+            .Nav_Logo ul {display: flex;
+            justify-content: center; align-items: center; flex-direction: column;}
+            .Nav_Logo nav ul li a{color: #000000;font-size: 15px;}
+        }
+        @media screen and (max-width:321px){
+            .Home .btn button{width: 115px;}
+        }
+    </style>
+</head>
+<body>
+    <div class="Nav_Logo">
+        <div class="Logo">De<span>om</span></div>
+        <nav id="nav">
+            <ul>
+                <li><a href="#" id="active">home</a></li>
+                <li><a href="#">about</a></li>
+                <li><a href="#">service</a></li>
+                <li><a href="#">project</a></li>
+                <li><a href="#" id="contact">contact</a></li>
+            </ul>
+        </nav>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPUAAADNCAMAAABXRsaXAAAAb1BMVEUAAAD////Ozs74+Pj09PTu7u7R0dGBgYFUVFTl5eVxcXG6urp+fn5GRkaEhIT8/Pzc3Nw4ODhaWlogICAxMTFAQEAoKCjFxcVmZmZERERnZ2eJiYnKyspgYGA1NTW3t7cWFhZ1dXWZmZklJSXg4OC75cVAAAADsUlEQVR4nO2d65KiMBBG5SKioiCKON51fP9n3NlyDEkA3R9Ld1V/fZ7gO6UFpNPpjAJERtwBWFBrHNrW8SWrRnKoskv80bpOuWMOQFq/tU623AEHYhv2W8+4ww3IrMd6fOVONijXcZf1lDvW4Ezb1mPuTASMW9Zr7kgEXH1ryQ+yhplrnXDnISJ0rDfccYjY2tZH7jRk1JZ1yR2GjLSxjrizEBIb6zl3FEIuxnrCHYWQzFgvuKMQUhlr7iSkqDUOao2DsZZYIexjYawP3FEIWRrrmjsKIXNjnXNHISRv1lw77ixknKyVJkopZTRK7FrKF3caIiqngvTgjkNE4dZIMV5eS68yHKy4ExFwDnxrhCpS1LIOYu5Mg9Ns71l7mrmkFoU2qyjospb9SDvYom6vwlTq6iudBv3WQVDcuAMOwK3wLDs6r8L7Xs5rbLW7h21F7TfDQa1xUGsc1BoHtcZBrXFQaxzUGge1xkGtcVBrHNQaB7XGQa1xUGsc1BoHtcZBrXFQaxzUGoe2dV4f0it3c9x/45oe6vyjdSLxuM/Oby90rQupzdKrot864w43IFmPdSx1pNuT77jLWv7Qq45JX/KPffzOSnGsZf+9n3z71pIfZA0317rgzkNE4ljLOfLwnrNtHXKnIeNoWZ+4w5BRNtYIZzRfRMYaadJXM01iyR2FkImxRpr09WWsuZOQotY4qDUOkM/wBfj7GvPbDGnSV/MdjrnmAl1fY9ZSQOtmIDXS17aPqYcj3AywDXxrzL0PgH2uzklfsew/+bZzTzOQPSm/b//67wtM6oTO6k2vwg/JnjvgAOwTz7Kj86o+lHIucFqX/9KDhIFa46DWOKg1DmqNg1rjoNY4qDUOao2DWuOg1jioNQ5qjYNa46DWOKg1DmqNg1rjoNY4qDUOav1LeN/J6aPdnO7Hz9Yi706dvb879SH1ntzFo98a8U7kSPbxpnPn/dfyD350nIBAmJnSvtf+zB2JgI1vjXEEe+Jao5xYLBxrqRM5fSrbOuFOQ0ZoWUscONvNqbFGmjCQG2vMaRIYr60nS2ONOSWGOwkpao2DWuMA+QxvpjVKnizgk4F/myFUj15Yk75K7ixkpNZK88gdhozarqXI2dh6z8apIKEUU7xJXxI39drMvMpwIGdESj/rwLeWP/LK2vJp9rmm3JkGp+NGm59fW/affN1s7rn715IfaTNb1O1VSKS+tzfu1Cu/L+Uo8eO0rD3Ldg9SNJ9IWm8vJvOo5aj9ZjioNQ5/AE/CbDl5pWowAAAAAElFTkSuQmCC" alt="" id="menubtn">
+    </div>
+    <section class="Home">
+        <h1>We design <br> innovative human experiences</h1>
+        <br>
+        <div class="btn">
+            <button>visit</button>
+            <button>info</button>
+        </div>
+    </section>
+<script>
+    let menubtn=document.querySelector('#menubtn');
+    let nav=document.querySelector('#nav');
+    menubtn.addEventListener('click',()=>{
+        nav.classList.toggle('active');
+    })
+</script>
+</body>
+</html>
